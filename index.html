@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chart.js</title>
+</head>
+<!-- <meta http-equiv="pragma" content="no-cache"> -->
+<link rel="stylesheet" type="text/css" href="grid.css">
+	<style>
+	    canvas {
+	        -moz-user-select: none;
+	        -webkit-user-select: none;
+	        -ms-user-select: none;
+	    }
+
+
+	    #canvas-holder {
+	        width: 100%;
+	        margin-top: 50px;
+	        text-align: center;
+	    }
+	    #chartjs-tooltip {
+	      opacity: 1;
+	      position: absolute;
+	      background: rgba(0, 0, 0, .7);
+	      color: white;
+	      border-radius: 3px;
+	      -webkit-transition: all .1s ease;
+	      transition: all .1s ease;
+	      pointer-events: none;
+	      -webkit-transform: translate(-50%, 0);
+	      transform: translate(-50%, 0);
+	    }
+
+	    .chartjs-tooltip-key {
+	      display: inline-block;
+	      width: 10px;
+	      height: 10px;
+	    }
+    </style>
+<body>
+
+<div class="grid">
+  <div class="grid__col grid__col--5-of-12">
+	<!-- <a href="bar.html">bar.html</a><br> -->
+	<button class="btn" name="bar">&raquo; Run Bar Chart</button>
+	</br>
+
+	<!-- <a href="bar-horizontal.html">bar-horizontal</a><br> -->
+	<button class="btn" name="bar-horizontal">&raquo; Run Horizontal Bar Chart</button>
+	</br>
+
+	<!-- <a href="bar-multi-axis.html">bar-multi-axis.html</a><br> -->
+	<button class="btn" name="bar-multi-axis">&raquo; Run Bar Chart Multi Axis</button>
+	</br>
+
+	<!-- <a href="bar-stacked.html">bar-stacked.html</a><br> -->
+	<button class="btn" name="bar-stacked">&raquo; Run Stacked Bar Chart</button>
+	</br>
+	
+	<!-- <a href="bubble.html">bubble.html</a><br> -->
+	<button class="btn" name="bubble">&raquo; Run Bubble Chart</button>
+	</br>
+
+	<!-- <a href="combo-bar-line.html">combo-bar-line.html</a><br> -->
+	<button class="btn" name="combo-bar-line">&raquo; Run Combo Bar-Line Chart</button>
+	</br>
+
+	<!-- <a href="combo-time-scale.html">combo-time-scale</a><br> -->
+	<button class="btn" name="combo-time-scale">&raquo; Run Line Chart Combo Time Scale</button>
+	</br>
+
+	<!-- <a href="data_label_combo-bar-line.html">data_label_combo-bar-line.html</a><br> -->
+	<button class="btn" name="data_label_combo-bar-line">&raquo; Run Combo Bar-Line Chart Data</button>
+	</br>
+
+	<!-- <a href="different-point-sizes.html">different-point-sizes.html</a><br> -->
+	<button class="btn" name="different-point-sizes">&raquo; Run Different Point Sizes-Line Chart</button>
+	</br>
+
+	<!-- <a href="doughnut.html">doughnut.html</a><br> -->
+	<button class="btn" name="doughnut">&raquo; Run Doughnut Chart</button>
+	</br>
+	
+	<!-- <a href="line.html">line.html</a><br> -->
+	<button class="btn" name="line">&raquo; Run Line Chart</button>
+	</br>
+
+	<!-- <a href="line-customTooltips.html">line-customTooltips.html</a><br> -->
+	<button class="btn" name="line-customTooltips">&raquo; Run Line Chart with Custom Tooltips</button>
+	</br>
+
+	<!-- <a href="line-legend.html">line-legend.html</a><br> -->
+	<button class="btn" name="line-legend">&raquo; Run Line Chart Legend</button>
+	</br>
+
+	<!-- <a href="line-logarithmic.html">line-logarithmic.html</a><br> -->
+	<button class="btn" name="line-logarithmic">&raquo; Run Line Chart Logarithmic</button>
+	</br>
+
+	<!-- <a href="line-multi-axis.html">line-multi-axis.html</a><br> -->
+	<button class="btn" name="line-multi-axis">&raquo; Run Line Chart Multi Axis</button>
+	</br>
+
+	<!-- <a href="line-multiline-labels.html">line-multiline-labels.html</a><br> -->
+	<button class="btn" name="line-multiline-labels">&raquo; Run Line Chart Multiline Labels</button>
+	</br>
+
+	<!-- <a href="line-skip-points.html">line-skip-points.html</a><br> -->
+	<button class="btn" name="line-skip-points">&raquo; Run Line Chart Skip Points</button>
+	</br>
+
+	<!-- <a href="line-stacked-area.html">line-stacked-area.html</a><br> -->
+	<button class="btn" name="line-stacked-area">&raquo; Run Line Chart Stacked Area</button>
+	</br>
+
+	<!-- <a href="line-time-point-data.html">line-time-point-data</a><br> -->
+	<button class="btn" name="line-time-point-data">&raquo; Run Line Chart Time Point Data</button>
+	</br>
+
+	<!-- <a href="line-time-scale.html">line-time-scale</a><br> -->
+	<button class="btn" name="line-time-scale">&raquo; Run Line Chart Time Scale</button>
+	</br>
+
+	<!-- <a href="line-x-axis-filter.html">line-x-axis-filter.html</a><br> -->
+	<button class="btn" name="line-x-axis-filter">&raquo; Run Line Chart X-Axis Filter</button>
+	</br>
+
+	<!-- <a href="pie.html">pie.html</a><br> -->
+ 	<button class="btn" name="pie">&raquo; Run Pie Chart</button>
+	</br>
+
+	<!-- <a href="pie-customTooltips.html">pie-customTooltips.html</a><br> -->
+ 	<button class="btn" name="pie-customTooltips">&raquo; Run Pie Chart with 
+ 	Custom Tooltips</button>
+	</br>
+
+	<!-- <a href="polar-area.html">polar-area.html</a><br> -->
+ 	<button class="btn" name="polar-area">&raquo; Run Polar Area Chart</button>
+	</br>
+
+	<!-- <a href="progress-bar.html">progress-bar</a><br> -->
+ 	<button class="btn" name="progress-bar">&raquo; Run Progress Bar Animation Chart</button>
+	</br>
+
+	<!-- <a href="radar.html">radar.html</a><br> -->
+	<button class="btn" name="radar">&raquo; Run Radar Chart</button>
+	</br>
+	
+	<!-- <a href="radar-skip-points.html">radar-skip-points.html</a><br> -->
+ 	<button class="btn" name="radar-skip-points">&raquo; Run Radar Chart - Skip Points</button>
+	</br>
+	
+	<!-- <a href="scatter.html">scatter.html</a><br> -->
+ 	<button class="btn" name="scatter">&raquo; Run Scatter Chart</button>
+	</br>
+	
+	<!-- <a href="scatter-logX.html">scatter-logX.html</a><br> -->
+ 	<button class="btn" name="scatter-logX">&raquo; Run Scatter Chart LogX</button>
+	</br>
+
+	<!-- <a href="scatter-multi-axis.html">scatter-multi-axis.html</a><br> -->
+ 	<button class="btn" name="scatter-multi-axis">&raquo; Run Scatter Chart Multi Axis</button>
+	</br>
+
+	<!-- <a href="tooltip-hooks.html">tooltip-hooks.html</a><br> -->
+	<button class="btn" name="tooltip-hooks">&raquo; Run Line Chart - Tooltip Hooks</button>
+  </div>
+  <div class="grid__col grid__col--7-of-12">
+  </div>
+</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="moment.js"></script>
+	<script type="text/javascript" src="Chart.bundle.js"></script>
+    <script type="text/javascript">
+
+    	jQuery.ajaxSetup({async:false});
+
+        $(document).ready( function() {
+			var githubraw = '';
+			var page = '';
+
+			if ( ( location.href.indexOf('?') == -1 ) || 
+					( location.href.indexOf('?') == location.href.length - 1 ) ) {
+				$('.grid__col--7-of-12').empty();
+	            $('.grid__col--7-of-12').load( githubraw + 'line-legend.html #loadpoint' );
+				$('body').
+				append('<script type="text/javascript" id="dyn_script"' +
+					' src="' + githubraw + 'line-legend.js"></s'+'cript>');
+				sessionStorage.setItem("PageVisited", "True");
+			} else {
+				// console.log(location.href.substr(
+				// 	-(location.href.length - location.href.indexOf('?') - 1),
+				// 	(location.href.length - location.href.indexOf('?'))
+				// 	)
+				// );
+				page = location.href.substr(
+					-(location.href.length - location.href.indexOf('?') - 1),
+					(location.href.length - location.href.indexOf('?'))
+					);
+				$('.grid__col--7-of-12').empty();
+				$('.grid__col--7-of-12').load( githubraw + page +'.html #loadpoint' );
+
+				$('body').
+				append('<script type="text/javascript" id="dyn_script"' +
+					' src="' + githubraw + page + '.js"></s'+'cript>');
+			}
+
+			$( document ).on( 'click', '.btn', function(event) {
+				var button = $(this).attr('name');
+				location.href = location.href.substr
+								( 0, location.href.indexOf('?') ) + '?' + button;
+			});
+        });
+
+    </script>
+</body>
+</html>
